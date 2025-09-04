@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Express CORS Test</title>
+</head>
+<body>
+  <h1>Express + CORS Demo</h1>
+  <button id="fetchBtn">Fetch API Data</button>
+  <pre id="output"></pre>
+
+  <script>
+    document.getElementById('fetchBtn').addEventListener('click', () => {
+      fetch('http://localhost:5000/api')
+        .then(res => res.json())
+        .then(data => {
+          document.getElementById('output').textContent = JSON.stringify(data, null, 2);
+        })
+        .catch(err => {
+          document.getElementById('output').textContent = 'Error: ' + err;
+        });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Fetch API Example</title>
+</head>
+<body>
+  <h1>Express API Fetch Demo</h1>
+  <button id="fetchBtn">Fetch API Data</button>
+  <pre id="output"></pre>
+
+  <script>
+    document.getElementById('fetchBtn').addEventListener('click', () => {
+      fetch('/api')  // Calls http://localhost:5000/api
+        .then(response => response.json())
+        .then(data => {
+          document.getElementById('output').textContent = JSON.stringify(data, null, 2);
+        })
+        .catch(error => {
+          document.getElementById('output').textContent = 'Error: ' + error;
+        });
+    });
+  </script>
+</body>
+</html>
